@@ -18,15 +18,15 @@ class MyApp extends StatelessWidget {
       title: 'KIN',
       darkTheme: ThemeData(
         primaryColor: kdark,
+      ),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
         textTheme: GoogleFonts.muliTextTheme(textTheme).copyWith(
           headline1: GoogleFonts.philosopher(textStyle: textTheme.headline1),
           headline6: GoogleFonts.philosopher(textStyle: textTheme.headline6),
           bodyText1: GoogleFonts.muli(textStyle: textTheme.bodyText2),
         ),
-      ),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
       ),
       home: AnimatedSplashScreen(
         duration: 3000,

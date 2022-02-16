@@ -8,8 +8,19 @@ class Events extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> eventImages = [
+      "images/img-1.jpeg",
+      "images/img-2.jpeg",
+      "images/img-1.jpeg",
+      "images/img-2.jpeg",
+    ];
+
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: kGold,
+          size: 24,
+        ),
         backgroundColor: Colors.black,
         title: Text(
           "Events",
@@ -20,6 +31,24 @@ class Events extends StatelessWidget {
         centerTitle: true,
       ),
       bottomNavigationBar: BottomNavBar(selectedIndex: 2),
+      body: ListView(
+        children: eventImages
+            .map(
+              (eventImage) => Card(
+                color: Colors.transparent,
+                margin: const EdgeInsets.only(
+                  top: 10,
+                  left: 16,
+                  bottom: 10,
+                  right: 16,
+                ),
+                child: Image(
+                  image: AssetImage(eventImage),
+                ),
+              ),
+            )
+            .toList(),
+      ),
     );
   }
 }

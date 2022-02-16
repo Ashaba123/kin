@@ -10,6 +10,10 @@ class Testimonies extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: kGold,
+          size: 24,
+        ),
         backgroundColor: Colors.black,
         title: Text(
           "Testimonies",
@@ -20,6 +24,7 @@ class Testimonies extends StatelessWidget {
         centerTitle: true,
       ),
       bottomNavigationBar: BottomNavBar(selectedIndex: 2),
+      
     );
   }
 }

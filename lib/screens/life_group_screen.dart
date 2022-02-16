@@ -10,6 +10,10 @@ class LifeGroups extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: kGold,
+          size: 24,
+        ),
         backgroundColor: Colors.black,
         title: Text(
           "Life Groups",

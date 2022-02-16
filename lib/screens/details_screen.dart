@@ -10,6 +10,10 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kdark,
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: kGold,
+          size: 24,
+        ),
         title: Text(
           "MORE",
           style: TextStyle(

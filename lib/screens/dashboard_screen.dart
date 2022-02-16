@@ -4,6 +4,7 @@ import 'package:kin/components/core_values.dart';
 import 'package:kin/components/divider.dart';
 import 'package:kin/components/pastors.dart';
 import 'package:kin/constants/constants.dart';
+import '../components/bottom_navigation.dart';
 import '../components/carousel.dart';
 import '../components/overview.dart';
 
@@ -15,14 +16,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,32 +74,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ],
           ),
         ),
-        child: BottomNavigationBar(
-          backgroundColor: kGold.withOpacity(0.6),
-          unselectedItemColor: Colors.black87.withOpacity(0.6),
-          selectedItemColor: Colors.black,
-          onTap: _onItemTapped,
-          currentIndex: _selectedIndex,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              label: "Home",
-              icon: Icon(
-                Icons.home,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "Sermons",
-              icon: Icon(
-                Icons.headphones,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "More",
-              icon: Icon(
-                Icons.more_vert_rounded,
-              ),
-            )
-          ],
+        child: BottomNavBar(
+          selectedIndex: 0,
         ),
       ),
       body: SingleChildScrollView(

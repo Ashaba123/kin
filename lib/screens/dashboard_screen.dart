@@ -52,14 +52,25 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 color: Colors.black,
               ),
             ),
-            items: <String>["We Get To Give", "Privacy Policy"]
-                .map((String value) {
+            items: <String>[
+              "We Get To Give",
+              "Privacy Policy",
+            ].map((String value) {
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(value),
               );
             }).toList(),
-            onChanged: (_) {},
+            onChanged: (_) {
+              switch (_) {
+                case "We Get To Give":
+                  Navigator.pushNamed(context, '/giving');
+                  break;
+                case "Privacy Policy":
+                  break;
+                default:
+              }
+            },
           ),
         ],
       ),

@@ -6,6 +6,7 @@ import 'package:kin/screens/details_screen.dart';
 import 'package:kin/screens/dashboard_screen.dart';
 import 'package:kin/screens/devotion.dart';
 import 'package:kin/screens/events.dart';
+import 'package:kin/screens/giving_screen.dart';
 import 'package:kin/screens/life_group_screen.dart';
 import 'package:kin/screens/sermons_screen.dart';
 import 'package:kin/screens/testimonies.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         '/events': (context) => const Events(),
         '/devotions': (context) => const Devotions(),
         '/testimonies': (context) => const Testimonies(),
+        '/giving': (context) => const GivingScreen(),
       },
       home: AnimatedSplashScreen(
         duration: 3000,

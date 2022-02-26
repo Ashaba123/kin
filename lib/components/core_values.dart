@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/constants.dart';
 
@@ -13,8 +12,8 @@ class CoreValues extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Core Values",
-            style: GoogleFonts.philosopher(
+            "CORE VALUES",
+            style: TextStyle(
               fontSize: 24,
               color: kGold,
               fontWeight: FontWeight.bold,
@@ -44,7 +43,7 @@ class CoreValues extends StatelessWidget {
                 children: [
                   Text(
                     "ONE",
-                    style: GoogleFonts.philosopher(
+                    style: TextStyle(
                       fontSize: 50,
                       color: kGold,
                       letterSpacing: 1,

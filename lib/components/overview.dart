@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:kin/components/divider.dart';
 import 'package:kin/constants/constants.dart';
 
@@ -11,11 +10,11 @@ class OverView extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(16),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "OverView",
-            style: GoogleFonts.philosopher(
+            "OVERVIEW",
+            style: TextStyle(
               fontSize: 24,
               color: kGold,
               fontWeight: FontWeight.bold,
@@ -26,9 +25,9 @@ class OverView extends StatelessWidget {
             height: 3.0,
           ),
           Text(
-            "Kingdom Influencers Network",
+            "Kingdom Influence's Network",
             textAlign: TextAlign.center,
-            style: GoogleFonts.muli(
+            style: TextStyle(
               fontSize: 18.0,
               color: kGold,
             ),
@@ -40,22 +39,28 @@ class OverView extends StatelessWidget {
           const SizedBox(
             height: 5.0,
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Card(
+          SizedBox(
+            height: 150,
+            child: GridView(
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 20,
+                childAspectRatio: 3 / 2.5,
+              ),
+              children: [
+                Card(
                   color: kGold,
                   child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           "Main Thing",
-                          style: GoogleFonts.philosopher(
+                          style: TextStyle(
                             fontSize: 18.0,
                             color: Colors.black,
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
                         const SizedBox(
@@ -63,43 +68,37 @@ class OverView extends StatelessWidget {
                         ),
                         Text(
                           kmainThing,
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                width: 10.0,
-              ),
-              Expanded(
-                child: Card(
+                Card(
                   color: kGold,
                   child: Padding(
-                    padding: const EdgeInsets.all(14.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           "Kin Declaration",
-                          style: GoogleFonts.philosopher(
-                            fontSize: 18.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
                         Text(
                           kKinDeclaration,
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

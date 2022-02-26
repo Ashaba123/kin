@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:kin/components/bottom_navigation.dart';
 import 'package:kin/constants/constants.dart';
 import 'package:kin/models/devotion_model.dart';
 
@@ -24,7 +22,6 @@ class Devotions extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        bottomNavigationBar: BottomNavBar(selectedIndex: 2),
         body: ListView(
           children: devotions
               .map(
@@ -45,7 +42,7 @@ class Devotions extends StatelessWidget {
                       children: [
                         Text(
                           devotion.scripture,
-                          style: GoogleFonts.philosopher(
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),

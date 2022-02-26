@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
+import 'package:kin/constants/constants.dart';
 
 class GivingScreen extends StatelessWidget {
   const GivingScreen({Key? key}) : super(key: key);
@@ -7,31 +7,123 @@ class GivingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: kGold,
-          size: 24,
+      body: SafeArea(
+        child: Container(
+          color: kdark.withOpacity(0.8),
+          child: Column(
+            children: [
+              Container(
+                height: 200,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('images/background-2.jpg'),
+                    fit: BoxFit.fill,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20.0),
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "WAYS TO GIVE",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: kGold,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      "Mobile Money",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: kGold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        PaymentCard(
+                            phoneNo: "07747732189", imgUrl: "images/mtn.png"),
+                        PaymentCard(
+                          phoneNo: '0750336782',
+                          imgUrl: 'images/airtel.png',
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      "Banks",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: kGold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        PaymentCard(
+                          phoneNo: "1101102034981",
+                          imgUrl: "images/stanbic.png",
+                        ),
+                        PaymentCard(
+                          phoneNo: '1101102034981',
+                          imgUrl: 'images/cent_logo.png',
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
-        backgroundColor: Colors.black,
-        title: Text(
-          "We Get To Give",
+      ),
+    );
+  }
+}
+
+class PaymentCard extends StatelessWidget {
+  const PaymentCard({
+    required this.phoneNo,
+    required this.imgUrl,
+    Key? key,
+  }) : super(key: key);
+
+  final String phoneNo;
+  final String imgUrl;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Card(
+          margin: const EdgeInsets.all(0),
+          child: Image(
+            width: 150,
+            height: 100,
+            image: AssetImage(imgUrl),
+            fit: BoxFit.fill,
+          ),
+        ),
+        const SizedBox(height: 5),
+        Text(
+          phoneNo,
           style: TextStyle(
+            fontSize: 18,
             color: kGold,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          Text(
-            "Kingdom Influencers Network",
-            style: TextStyle(
-              color: kGold,
-              fontSize: 20,
-            ),
-          ),
-        ],
-      ),
+      ],
     );
   }
 }

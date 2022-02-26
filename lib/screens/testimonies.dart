@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kin/components/bottom_navigation.dart';
+
 import 'package:kin/models/testimony_model.dart';
 
 import '../constants/constants.dart';
@@ -24,7 +24,7 @@ class Testimonies extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      bottomNavigationBar: BottomNavBar(selectedIndex: 2),
+
       body: ListView(
         children: testimonies
             .map(

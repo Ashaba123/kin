@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1070885437102",
+    "project_id": "kin-app-12f22",
+    "storage_bucket": "kin-app-12f22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070885437102:android:1035ef91a3fb997bf3b73f",
+        "android_client_info": {
+          "package_name": "com.shabdee.kin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070885437102-pf1nc3umko6lre35b12s1jtngcsn9g6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARYhEaTqWTTaFrK55FBSHIlXrV5OKjTy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070885437102-pf1nc3umko6lre35b12s1jtngcsn9g6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

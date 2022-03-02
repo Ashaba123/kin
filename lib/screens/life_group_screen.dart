@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kin/components/bottom_navigation.dart';
+
 import 'package:kin/constants/constants.dart';
 import 'package:kin/models/life_groups_model.dart';
 
@@ -23,7 +23,7 @@ class LifeGroups extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      bottomNavigationBar: BottomNavBar(selectedIndex: 2),
+
       body: ListView(
         children: lifeGroups
             .map((lifeGroup) => Container(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kin/components/bottom_navigation.dart';
 import 'package:kin/constants/constants.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -23,9 +22,7 @@ class DetailsScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.black,
       ),
-      bottomNavigationBar: BottomNavBar(
-        selectedIndex: 2,
-      ),
+
       body: Column(
         children: [
           const CardBox(name: "Life Groups"),

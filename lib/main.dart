@@ -1,16 +1,32 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kin/bloc/devotion_bloc.dart';
+import 'package:kin/bloc/event_bloc.dart';
 import 'package:kin/constants/constants.dart';
+import 'package:kin/repositories/devotion_repository.dart';
+import 'package:kin/repositories/event_repository.dart';
 import 'package:kin/screens/dashboard_screen.dart';
 import 'package:kin/screens/devotion.dart';
-import 'package:kin/screens/events.dart';
+import 'package:kin/screens/events_screen.dart';
 import 'package:kin/screens/giving_screen.dart';
 import 'package:kin/screens/life_group_screen.dart';
 import 'package:kin/screens/testimonies.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MultiProvider(
+    providers: [
+      Provider(
+          create: (_) =>
+              DevotionBloc(iDevotionRepository: DevotionRepository())),
+      // Provider(create: (_) => EventBloc(iEventRepository: EventReposotory())),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -35,7 +51,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/lifeGroups': (context) => const LifeGroups(),
-        '/events': (context) => const Events(),
+        '/events': (context) => const EventsScreen(),
         '/devotions': (context) => const Devotions(),
         '/testimonies': (context) => const Testimonies(),
         '/giving': (context) => const GivingScreen(),

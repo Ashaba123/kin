@@ -36,10 +36,11 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.shabdee.kin"
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 19
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -53,4 +54,8 @@ android {
 
 flutter {
     source '../..'
+}
+
+dependencies {
+  implementation 'com.android.support:multidex:1.0.3'
 }

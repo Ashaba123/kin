@@ -3,9 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kin/bloc/devotion_bloc.dart';
+import 'package:kin/bloc/event_bloc.dart';
 import 'package:kin/bloc/testimony_bloc.dart';
 import 'package:kin/constants/constants.dart';
 import 'package:kin/repositories/devotion_repository.dart';
+import 'package:kin/repositories/event_repository.dart';
 import 'package:kin/repositories/testimony_repository.dart';
 import 'package:kin/screens/dashboard_screen.dart';
 import 'package:kin/screens/devotion.dart';
@@ -23,7 +25,7 @@ Future<void> main() async {
       Provider(
           create: (_) =>
               DevotionBloc(iDevotionRepository: DevotionRepository())),
-      // Provider(create: (_) => EventBloc(iEventRepository: EventReposotory())),
+      Provider(create: (_) => EventBloc(iEventRepository: EventRepository())),
       Provider(
           create: (_) =>
               TestimonyBloc(iTestimonyRepository: TestimonyRepository())),

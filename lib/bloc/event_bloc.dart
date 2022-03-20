@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kin/models/events_model.dart';
 import 'package:kin/repositories/event_repository.dart';
 
@@ -7,7 +6,7 @@ class EventBloc {
 
   EventBloc({required this.iEventRepository});
 
-  Stream<List<QueryDocumentSnapshot<EventModel>>> getAllEvents() {
+  Future<List<EventModel>> getAllEvents() {
     return iEventRepository.getAllEvents();
   }
 }

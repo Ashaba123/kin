@@ -1,13 +1,8 @@
+import 'package:firebase_storage/firebase_storage.dart';
+
 class EventModel {
-  EventModel({this.imgUrl});
+  EventModel({this.imgUrl, this.ref});
 
   String? imgUrl;
-  
-
-  EventModel.fromJson(Map<String, Object?> json)
-      : this(imgUrl: json["imgUrl"]! as String);
-
-  Map<String, Object?> toJson() => {
-        "imgUrl": imgUrl,
-      };
+  Reference? ref;
 }

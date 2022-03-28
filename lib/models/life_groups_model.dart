@@ -1,35 +1,16 @@
-import 'package:flutter/material.dart';
-
 class LifeGroupsModel {
-  String name;
-  String location;
-  String phone;
-  IconData icon;
-  LifeGroupsModel({
-    required this.name,
-    required this.location,
-    required this.phone,
-    required this.icon,
-  });
-}
+  String? groupName;
+  String? location;
+  String? phone;
+  LifeGroupsModel({this.groupName, this.location, this.phone});
 
-List<LifeGroupsModel> lifeGroups = [
-  LifeGroupsModel(
-    name: "Tranformation",
-    location: "Bunga",
-    phone: "+256774805301",
-    icon: Icons.album_outlined,
-  ),
-  LifeGroupsModel(
-    name: "Big House",
-    location: "Monyonyo",
-    phone: "+256774805301",
-    icon: Icons.ac_unit_rounded,
-  ),
-  LifeGroupsModel(
-    name: "Money Matters",
-    location: "Kasango",
-    phone: "+256774805301",
-    icon: Icons.monetization_on_rounded,
-  ),
-];
+  LifeGroupsModel.fromJson(Map<String, Object?> json)
+      : this(
+            groupName: json['groupName']! as String,
+            location: json['location']! as String,
+            phone: json['phone']! as String);
+
+  Map<String, Object?> toJson() {
+    return {'groupName': groupName, 'location': location, 'phone': phone};
+  }
+}

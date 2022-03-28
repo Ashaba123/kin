@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kin/bloc/event_bloc.dart';
 import 'package:kin/constants/constants.dart';
@@ -25,8 +24,8 @@ class EventsScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: StreamBuilder<List<QueryDocumentSnapshot<EventModel>>>(
-          stream: context.read<EventBloc>().getAllEvents(),
+      body: FutureBuilder<List<EventModel>>(
+          future: context.read<EventBloc>().getAllEvents(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return const Center(
@@ -46,7 +45,7 @@ class EventsScreen extends StatelessWidget {
             return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  final event = snapshot.data![index].data();
+                  final event = snapshot.data![index];
                   return EventCard(event: event);
                 });
           }),

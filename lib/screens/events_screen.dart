@@ -10,6 +10,7 @@ class EventsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kdark,
       appBar: AppBar(
         iconTheme: IconThemeData(
           color: kGold,

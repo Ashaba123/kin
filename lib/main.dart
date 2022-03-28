@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:kin/bloc/devotion_bloc.dart';
 import 'package:kin/bloc/event_bloc.dart';
 import 'package:kin/bloc/life_group_bloc.dart';
+import 'package:kin/bloc/pastor_bloc.dart';
+import 'package:kin/bloc/sermon_bloc.dart';
 import 'package:kin/bloc/testimony_bloc.dart';
 import 'package:kin/repositories/devotion_repository.dart';
 import 'package:kin/repositories/event_repository.dart';
 import 'package:kin/repositories/life_group_repository.dart';
+import 'package:kin/repositories/pastors_repository.dart';
+import 'package:kin/repositories/sermon_repository.dart';
 import 'package:kin/repositories/testimony_repository.dart';
 import 'package:kin/screens/app.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +33,12 @@ Future<void> main() async {
       Provider(
         create: (_) =>
             LifeGroupBloc(iLifeGroupRepository: LifeGroupRepository()),
+      ),
+      Provider(
+        create: (_) => PastorBloc(iPastoryRepository: PastorRepostory()),
+      ),
+      Provider(
+        create: (_) => SermonBloc(iSermonRepository: SermonRepository()),
       ),
     ],
     child: const MyApp(),

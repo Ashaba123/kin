@@ -10,4 +10,6 @@ class SermonBloc {
   Stream<List<QueryDocumentSnapshot<SermonModel>>> getAllSermons() {
     return iSermonRepository.getAllSermons();
   }
+
+  
 }

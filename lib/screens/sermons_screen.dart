@@ -58,12 +58,13 @@ class SermonsScreen extends StatelessWidget {
                         final sermon = snapshot.data![index].data();
                         return GestureDetector(
                           onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: ((context) => MusicPlayer(
-                                      sermon: sermon,
-                                    )),
-                              )),
+                            context,
+                            MaterialPageRoute(
+                              builder: ((context) => MusicPlayer(
+                                    sermon: sermon,
+                                  )),
+                            ),
+                          ),
                           child: Container(
                             padding: const EdgeInsets.all(15.0),
                             margin: const EdgeInsets.only(

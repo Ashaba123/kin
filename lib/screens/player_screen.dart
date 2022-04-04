@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kin/constants/constants.dart';
 import 'package:kin/models/sermon_model.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class MusicPlayer extends StatefulWidget {
   final SermonModel sermon;
@@ -11,6 +12,34 @@ class MusicPlayer extends StatefulWidget {
 }
 
 class _MusicPlayerState extends State<MusicPlayer> {
+  AudioPlayer? audioPlayer;
+
+  bool isPlaying = false;
+  bool isPaused = false;
+
+  Duration duration = const Duration();
+  Duration position = const Duration();
+
+  @override
+  void initState() {
+    super.initState();
+
+    audioPlayer = AudioPlayer();
+    // Get Duration
+
+    audioPlayer!.onDurationChanged.listen((d) {
+      setState(() {
+        duration = d;
+      });
+    });
+    //Get Position
+    audioPlayer!.onAudioPositionChanged.listen((p) {
+      setState(() {
+        position = p;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,35 +115,98 @@ class _MusicPlayerState extends State<MusicPlayer> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
+                  Column(
+                    children: [
+                      slider(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              position.toString().split('.')[0],
+                              style: TextStyle(color: kGold, fontSize: 12),
+                            ),
+                            Text(
+                              "- " +
+                                  (duration - position)
+                                      .toString()
+                                      .split('.')[0],
+                              style: TextStyle(color: kGold, fontSize: 12),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(
+                        icon: Icon(
                           Icons.skip_previous,
                           color: kGold,
-                          size: 60,
                         ),
-                        Icon(
-                          Icons.play_arrow,
-                          color: kGold,
-                          size: 60,
-                        ),
-                        Icon(
+                        iconSize: 75,
+                        onPressed: () {},
+                      ),
+                      IconButton(
+                        splashColor: kGold.withOpacity(0.7),
+                        icon: isPlaying == false
+                            ? const Icon(Icons.play_arrow)
+                            : const Icon(Icons.pause),
+                        color: kGold,
+                        iconSize: 100,
+                        onPressed: (() {
+                          if (isPlaying == false) {
+                            audioPlayer!.play(widget.sermon.audioUrl!);
+                            setState(() {
+                              isPlaying = true;
+                            });
+                          } else {
+                            setState(() {
+                              isPlaying = false;
+                            });
+                            audioPlayer!.pause();
+                          }
+                        }),
+                      ),
+                      IconButton(
+                        icon: Icon(
                           Icons.skip_next,
                           color: kGold,
-                          size: 60,
                         ),
-                       
-                      ],
-                    ),
-                  )
+                        iconSize: 75,
+                        highlightColor: Colors.transparent,
+                        splashColor: kGold.withOpacity(0.7),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget slider() {
+    return Slider(
+      value: position.inSeconds.toDouble(),
+      max: duration.inSeconds.toDouble(),
+      min: 0.0,
+      thumbColor: kGold,
+      activeColor: kGold,
+      inactiveColor: Colors.grey.shade800,
+      onChanged: (double value) {
+        setState(() {
+          Duration newDuration = Duration(seconds: value.toInt());
+          audioPlayer!.seek(newDuration);
+          value = value;
+        });
+      },
     );
   }
 }

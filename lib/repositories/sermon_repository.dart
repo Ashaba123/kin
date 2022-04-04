@@ -17,4 +17,5 @@ class SermonRepository extends ISermonRepository {
   Stream<List<QueryDocumentSnapshot<SermonModel>>> getAllSermons() {
     return sermonRef.get().then((snapshot) => snapshot.docs).asStream();
   }
+  
 }

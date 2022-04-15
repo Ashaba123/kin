@@ -11,7 +11,7 @@ class PastorsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String defaultImgUrl =
-        'https://firebasestorage.googleapis.com/v0/b/kin-app-12f22.appspot.com/o/Pastors%2Fdefault.png?alt=media&token=98179e31-546c-4419-a107-07144ea2304e';
+        'https://firebasestorage.googleapis.com/v0/b/kin-app-12f22.appspot.com/o/Pastors%2Fkinlogo.PNG?alt=media&token=7bf5f35f-9197-49bd-b254-1de92f2bc067';
 
     return StreamBuilder<List<QueryDocumentSnapshot<PastorsModel>>>(
         stream: context.read<PastorBloc>().getAllPastors(),
@@ -54,6 +54,7 @@ class PastorsWidget extends StatelessWidget {
                             image: NetworkImage(pastor.imgUrl == ""
                                 ? defaultImgUrl
                                 : pastor.imgUrl!),
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),

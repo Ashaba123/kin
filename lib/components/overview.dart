@@ -46,7 +46,7 @@ class OverView extends StatelessWidget {
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 20,
-                childAspectRatio: 3 / 2.5,
+                childAspectRatio: 1,
               ),
               children: [
                 Card(
@@ -64,10 +64,11 @@ class OverView extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 8,
                         ),
                         Text(
                           kmainThing,
+                          textAlign: TextAlign.start,
                         ),
                       ],
                     ),

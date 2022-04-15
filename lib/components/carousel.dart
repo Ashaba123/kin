@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kin/constants/constants.dart';
 
 final List<String> imgList = [
+  "images/img-9.jpeg",
   "images/img-1.jpeg",
   "images/img-2.jpeg",
   "images/img-3.jpeg",
@@ -11,7 +12,7 @@ final List<String> imgList = [
   "images/img-6.jpeg",
   "images/img-7.jpeg",
   "images/img-8.jpeg",
-];
+]; //this should be from firebase
 
 class CarouselWithIndicatorDemo extends StatefulWidget {
   const CarouselWithIndicatorDemo({Key? key}) : super(key: key);

@@ -16,7 +16,7 @@ class GivingScreen extends StatelessWidget {
                 height: 200,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('images/background-2.jpg'),
+                    image: AssetImage('images/give.jpeg'),
                     fit: BoxFit.fill,
                   ),
                   borderRadius: BorderRadius.only(
@@ -51,9 +51,9 @@ class GivingScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
                         PaymentCard(
-                            phoneNo: "07747732189", imgUrl: "images/mtn.png"),
+                            phoneNo: "0789936333", imgUrl: "images/mtn.png"),
                         PaymentCard(
-                          phoneNo: '0750336782',
+                          phoneNo: '0706859641',
                           imgUrl: 'images/airtel.png',
                         ),
                       ],
@@ -71,12 +71,8 @@ class GivingScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
                         PaymentCard(
-                          phoneNo: "1101102034981",
-                          imgUrl: "images/stanbic.png",
-                        ),
-                        PaymentCard(
-                          phoneNo: '1101102034981',
-                          imgUrl: 'images/cent_logo.png',
+                          phoneNo: "010404690009",
+                          imgUrl: "images/boa.jpg",
                         ),
                       ],
                     ),

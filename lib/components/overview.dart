@@ -25,7 +25,7 @@ class OverView extends StatelessWidget {
             height: 3.0,
           ),
           Text(
-            "Kingdom Influence's Network",
+            "Kingdom Influencer's Network",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18.0,

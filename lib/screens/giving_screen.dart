@@ -71,7 +71,7 @@ class GivingScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
                         PaymentCard(
-                          phoneNo: "010404690009",
+                          phoneNo: "01404690009",
                           imgUrl: "images/boa.jpg",
                         ),
                       ],

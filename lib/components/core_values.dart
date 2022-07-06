@@ -50,7 +50,7 @@ class CoreValues extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Roman 1:14-9",
+                    "Romans 1:14-16",
                     style: TextStyle(color: kGold),
                   ),
                 ],

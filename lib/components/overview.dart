@@ -13,62 +13,50 @@ class OverView extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "OVERVIEW",
-            style: TextStyle(
-              fontSize: 24,
-              color: kGold,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 1,
-            ),
-          ),
-          const SizedBox(
-            height: 3.0,
-          ),
-          Text(
-            "Kingdom Influencer's Network",
+            "Kingdom Influencers Network",
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 18.0,
+              fontSize: 24.0,
               color: kGold,
             ),
           ),
-          const SizedBox(
-            height: 5.0,
-          ),
-          const CustomDivider(),
-          const SizedBox(
-            height: 5.0,
-          ),
+          const SizedBox(height: 5.0),
+          const SizedBox(height: 5.0),
           SizedBox(
-            height: 150,
+            height: 190,
             child: GridView(
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 20,
                 childAspectRatio: 1,
+                mainAxisExtent: 180,
               ),
               children: [
                 Card(
+                  elevation: 16,
                   color: kGold,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        const CustomDivider(),
                         const Text(
                           "Main Thing",
                           style: TextStyle(
                             fontSize: 18.0,
                             color: Colors.black,
                           ),
+                          textAlign: TextAlign.center,
                         ),
-                        const SizedBox(
-                          height: 8,
-                        ),
+                        const CustomDivider(),
+                        const SizedBox(height: 8),
                         Text(
                           kmainThing,
-                          textAlign: TextAlign.start,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                          ),
                         ),
                       ],
                     ),
@@ -79,20 +67,21 @@ class OverView extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        const CustomDivider(),
                         const Text(
                           "Kin Declaration",
-                          style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal),
+                          style: TextStyle(fontSize: 18.0, color: Colors.black),
+                          textAlign: TextAlign.center,
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
+                        const CustomDivider(),
+                        const SizedBox(height: 8),
                         Text(
                           kKinDeclaration,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 14.0,
+                          ),
                         ),
                       ],
                     ),

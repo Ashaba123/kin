@@ -14,49 +14,73 @@ class CoreValues extends StatelessWidget {
           Text(
             "CORE VALUES",
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 24.0,
               color: kGold,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 1,
             ),
           ),
-          Divider(
-            color: kGold,
-            thickness: 2,
-          ),
+          const SizedBox(height: 8),
           Row(
             children: [
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    Values(value: "Obligated"),
-                    SizedBox(height: 5),
-                    Values(value: "Not Ashamed"),
-                    SizedBox(height: 5),
-                    Values(value: "Eager"),
+                  children: [
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        SizedBox(width: 8),
+                        Values(value: "Obligated"),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        SizedBox(width: 8),
+                        Values(value: "Not Ashamed"),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        SizedBox(width: 8),
+                        Values(value: "Eager"),
+                      ],
+                    ),
                   ],
                 ),
               ),
               Expanded(
-                  child: Column(
-                children: [
-                  Text(
-                    "ONE",
-                    style: TextStyle(
-                      fontSize: 50,
-                      color: kGold,
-                      letterSpacing: 1,
+                child: Column(
+                  children: [
+                    Text(
+                      "ONE",
+                      style: TextStyle(
+                        fontSize: 48,
+                        color: kGold,
+                        letterSpacing: 1,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Romans 1:14-16",
-                    style: TextStyle(color: kGold),
-                  ),
-                ],
-              ))
+                    Text(
+                      "Romans 1 : 14-16",
+                      style: TextStyle(color: kGold),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
+          const SizedBox(height: 28),
         ],
       ),
     );

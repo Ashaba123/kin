@@ -42,14 +42,11 @@ class PastorsWidget extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        width: 100,
-                        height: 100,
+                        width: 120,
+                        height: 120,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          border: Border.all(
-                            color: kGold,
-                            width: 3,
-                          ),
+                          border: Border.all(width: 3, style: BorderStyle.none),
                           image: DecorationImage(
                             image: NetworkImage(pastor.imgUrl == ""
                                 ? defaultImgUrl
@@ -63,9 +60,7 @@ class PastorsWidget extends StatelessWidget {
                         pastor.pastorName!,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: kGold,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            color: kGold, fontStyle: FontStyle.normal),
                       ),
                     ],
                   ),

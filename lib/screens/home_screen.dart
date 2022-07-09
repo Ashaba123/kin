@@ -19,31 +19,28 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        leading: Icon(
-          Icons.home,
-          color: kGold,
-          size: 30,
-        ),
         title: Image.asset(
           'images/logo.png',
-          width: 120,
-          fit: BoxFit.contain,
+          width: 100,
+          fit: BoxFit.cover,
         ),
         centerTitle: true,
         actions: [
           DropdownButton<String>(
-            underline: Container(),
+            underline: Container(
+              color: Colors.amber.withOpacity(0.8),
+            ),
             dropdownColor: kGold,
             icon: Container(
-              padding: const EdgeInsets.all(2),
-              decoration: BoxDecoration(
-                color: Colors.amber.withOpacity(0.8),
+              padding: const EdgeInsets.only(right: 4),
+              decoration: const BoxDecoration(
+                color: Colors.black,
                 shape: BoxShape.circle,
               ),
               child: const Icon(
                 Icons.menu,
                 size: 30,
-                color: Colors.black,
+                color: Colors.amber,
               ),
             ),
             items: <String>[
@@ -81,25 +78,13 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 "OUR PASTORS",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 24.0,
                   color: kGold,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(
-                  top: 3,
-                  bottom: 5,
-                  left: 16,
-                  right: 16,
-                ),
-                child: CustomDivider(),
-              ),
-              const SizedBox(
-                height: 150,
-                child: PastorsWidget(),
-              )
+              const SizedBox(height: 10),
+              const SizedBox(height: 170, child: PastorsWidget()),
+              const SizedBox(height: 10),
             ],
           ),
         ),

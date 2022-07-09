@@ -36,10 +36,9 @@ class MyApp extends StatelessWidget {
         '/devotions': (context) => const Devotions(),
         '/testimonies': (context) => const Testimonies(),
         '/giving': (context) => const GivingScreen(),
-        
       },
       home: AnimatedSplashScreen(
-        duration: 3000,
+        duration: 1300,
         splash: Image.asset(
           'images/logo.png',
           height: 300,

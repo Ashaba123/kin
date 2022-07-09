@@ -36,7 +36,6 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
                   borderRadius: BorderRadius.circular(5.0),
                   border: Border.all(
                     width: 1,
-                    color: kGold,
                   ),
                   boxShadow: [
                     BoxShadow(

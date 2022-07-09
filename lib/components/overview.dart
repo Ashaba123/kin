@@ -33,88 +33,58 @@ class OverView extends StatelessWidget {
                 mainAxisExtent: 180,
               ),
               children: [
-                Card(
-                  elevation: 8,
-                  shadowColor: Colors.amber,
-                  child: Container(
-                    height: 50,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.amber.shade200,
-                          Colors.amber,
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Main Thing",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          const CustomDivider(),
-                          const Text(
-                            "Main Thing",
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const CustomDivider(),
-                          const SizedBox(height: 12),
-                          Text(
-                            kmainThing,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 14.0,
-                            ),
-                          ),
-                        ],
+                      const SizedBox(height: 12),
+                      const CustomDivider(),
+                      const SizedBox(height: 12),
+                      Text(
+                        kmainThing,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 14.0,
+                          color: Colors.amber,
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
-                Card(
-                  elevation: 8,
-                  shadowColor: Colors.amber,
-                  child: Container(
-                    height: 50,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.amber.shade200,
-                          Colors.amber,
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Kin Declaration",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.amber,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          const CustomDivider(),
-                          const Text(
-                            "Kin Declaration",
-                            style:
-                                TextStyle(fontSize: 18.0, color: Colors.black),
-                            textAlign: TextAlign.center,
-                          ),
-                          const CustomDivider(),
-                          const SizedBox(height: 12),
-                          Text(
-                            kKinDeclaration,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 14.0,
-                            ),
-                          ),
-                        ],
+                      const SizedBox(height: 12),
+                      const CustomDivider(),
+                      const SizedBox(height: 12),
+                      Text(
+                        kKinDeclaration,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 14.0,
+                          color: Colors.amber,
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ],

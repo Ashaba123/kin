@@ -34,42 +34,54 @@ class _DashboardScreenState extends State<DashboardScreen> {
               end: Alignment.bottomRight,
               colors: [
                 kGold,
-                Colors.yellow,
+                Colors.amber,
               ],
             ),
           ),
-          child: BottomNavigationBar(
-            backgroundColor: kGold,
-            unselectedItemColor: Colors.black87.withOpacity(0.6),
-            selectedItemColor: Colors.black,
-            currentIndex: currentIndex,
-            onTap: (index) {
-              setState(() {
-                prevIndexes.add(currentIndex);
-                currentIndex = index;
-              });
-            },
-            type: BottomNavigationBarType.fixed,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                label: "Home",
-                icon: Icon(
-                  Icons.home,
-                ),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.amber.shade400,
+                  Colors.amber,
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
               ),
-              BottomNavigationBarItem(
-                label: "Sermons",
-                icon: Icon(
-                  Icons.headphones,
+            ),
+            child: BottomNavigationBar(
+              backgroundColor: Colors.transparent,
+              unselectedItemColor: Colors.black87.withOpacity(0.6),
+              selectedItemColor: Colors.black,
+              currentIndex: currentIndex,
+              onTap: (index) {
+                setState(() {
+                  prevIndexes.add(currentIndex);
+                  currentIndex = index;
+                });
+              },
+              type: BottomNavigationBarType.fixed,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  label: "Home",
+                  icon: Icon(
+                    Icons.home,
+                  ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                label: "More",
-                icon: Icon(
-                  Icons.more_vert_rounded,
+                BottomNavigationBarItem(
+                  label: "Sermons",
+                  icon: Icon(
+                    Icons.headphones,
+                  ),
                 ),
-              )
-            ],
+                BottomNavigationBarItem(
+                  label: "More",
+                  icon: Icon(
+                    Icons.more_vert_rounded,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
         body: Stack(

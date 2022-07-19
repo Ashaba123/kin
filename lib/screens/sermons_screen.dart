@@ -49,8 +49,11 @@ class SermonsScreen extends StatelessWidget {
                     );
                   }
                   if (snapshot.data!.isEmpty) {
-                    return const Center(
-                        child: Text('Sermons will be uploaded'));
+                    return Center(
+                        child: Text(
+                      'Sermons will be uploaded',
+                      style: TextStyle(color: kGold),
+                    ));
                   }
                   return ListView.builder(
                       itemCount: snapshot.data!.length,

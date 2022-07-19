@@ -8,8 +8,6 @@ import 'package:kin/screens/events_screen.dart';
 import 'package:kin/screens/giving_screen.dart';
 import 'package:kin/screens/life_group_screen.dart';
 
-import 'package:kin/screens/testimonies.dart';
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -34,7 +32,6 @@ class MyApp extends StatelessWidget {
         '/lifeGroups': (context) => const LifeGroups(),
         '/events': (context) => const EventsScreen(),
         '/devotions': (context) => const Devotions(),
-        '/testimonies': (context) => const Testimonies(),
         '/giving': (context) => const GivingScreen(),
       },
       home: AnimatedSplashScreen(

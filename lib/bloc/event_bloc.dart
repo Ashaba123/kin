@@ -6,7 +6,7 @@ class EventBloc {
 
   EventBloc({required this.iEventRepository});
 
-  Future<List<EventModel>> getAllEvents() {
+  Stream<List<EventModel>> getAllEvents() {
     return iEventRepository.getAllEvents();
   }
 }

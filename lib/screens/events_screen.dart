@@ -25,8 +25,8 @@ class EventsScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: FutureBuilder<List<EventModel>>(
-          future: context.read<EventBloc>().getAllEvents(),
+      body: StreamBuilder<List<EventModel>>(
+          stream: context.read<EventBloc>().getAllEvents(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return const Center(
@@ -41,7 +41,11 @@ class EventsScreen extends StatelessWidget {
               );
             }
             if (snapshot.data!.isEmpty) {
-              return const Center(child: Text('Events will be uploaded'));
+              return Center(
+                  child: Text(
+                'Events will be uploaded',
+                style: TextStyle(color: kGold),
+              ));
             }
             return ListView.builder(
                 itemCount: snapshot.data!.length,

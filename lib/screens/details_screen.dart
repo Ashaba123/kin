@@ -22,28 +22,28 @@ class DetailsScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.black,
       ),
-
       body: Column(
         children: [
           const CardBox(name: "Life Groups"),
           const CardBox(name: "Upcoming Events"),
           const CardBox(name: "Devotions"),
-          const CardBox(name: "Testimonies"),
+          const SizedBox(height: 18),
           Container(
             margin: const EdgeInsets.only(top: 40),
             child: Column(
               children: [
                 Text(
-                  "Visit Our Website",
+                  "Raising Kingdom Champions",
                   style: TextStyle(
                     color: kGold,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
                 GestureDetector(
                   child: const Text(
-                    "kinministriesint.com",
+                    "",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -83,9 +83,6 @@ class CardBox extends StatelessWidget {
             break;
           case "Devotions":
             Navigator.pushNamed(context, "/devotions");
-            break;
-          case "Testimonies":
-            Navigator.pushNamed(context, "/testimonies");
             break;
           default:
         }

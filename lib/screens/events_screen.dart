@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kin/bloc/event_bloc.dart';
 import 'package:kin/constants/constants.dart';
 import 'package:kin/models/events_model.dart';
+import 'package:kin/provider/event_provider.dart';
 import 'package:provider/provider.dart';
 
 class EventsScreen extends StatelessWidget {
@@ -26,7 +26,7 @@ class EventsScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: StreamBuilder<List<EventModel>>(
-          stream: context.read<EventBloc>().getAllEvents(),
+          stream: context.read<EventProvider>().getAllEvents(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return const Center(

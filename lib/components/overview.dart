@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kin/components/divider.dart';
 import 'package:kin/constants/constants.dart';
+import 'package:kin/models/declaration.dart';
+import 'package:kin/provider/declaration_provider.dart';
+import 'package:provider/provider.dart';
 
 class OverView extends StatelessWidget {
   const OverView({Key? key}) : super(key: key);
@@ -20,73 +24,78 @@ class OverView extends StatelessWidget {
               color: kGold,
             ),
           ),
-          const SizedBox(height: 5.0),
-          const SizedBox(height: 5.0),
-          SizedBox(
-            height: 190,
-            child: GridView(
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 20,
-                childAspectRatio: 1,
-                mainAxisExtent: 180,
-              ),
+          const SizedBox(height: 16.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        "Main Thing",
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.amber,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 12),
-                      const CustomDivider(),
-                      const SizedBox(height: 12),
-                      Text(
-                        kmainThing,
+                const Text(
+                  "Main Thing",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.amber,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                const CustomDivider(),
+                const SizedBox(height: 12),
+                Text(
+                  kmainThing,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 14.0,
+                    color: Colors.amber,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                const Text(
+                  "KIN Declaration",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.amber,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                const CustomDivider(),
+                const SizedBox(height: 12),
+                StreamBuilder<List<QueryDocumentSnapshot<Declaration>>>(
+                    stream:
+                        context.read<DeclarationProvider>().getKinDeclaration(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: kGold,
+                          ),
+                        );
+                      }
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: kGold,
+                          ),
+                        );
+                      }
+                      return Text(
+                        "${snapshot.data![0].data().title}",
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 14.0,
                           color: Colors.amber,
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        "Kin Declaration",
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.amber,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 12),
-                      const CustomDivider(),
-                      const SizedBox(height: 12),
-                      Text(
-                        kKinDeclaration,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.amber,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                      );
+                    }),
               ],
             ),
           ),

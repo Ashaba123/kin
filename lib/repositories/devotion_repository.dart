@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:kin/models/devotion_model.dart';
+import 'package:kin/models/devotion.dart';
 
 abstract class IDevotionRepository {
   Stream<List<QueryDocumentSnapshot<Devotion>>> getAllDevotions();
-  
 }
 
 class DevotionRepository extends IDevotionRepository {
@@ -18,5 +17,4 @@ class DevotionRepository extends IDevotionRepository {
   Stream<List<QueryDocumentSnapshot<Devotion>>> getAllDevotions() {
     return devotionsRef.get().then((snapshot) => snapshot.docs).asStream();
   }
-
 }

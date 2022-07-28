@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kin/bloc/life_group_bloc.dart';
 import 'package:kin/constants/constants.dart';
 import 'package:kin/models/life_groups_model.dart';
+import 'package:kin/provider/life_group_provider.dart';
 import 'package:provider/provider.dart';
 
 class LifeGroups extends StatelessWidget {
@@ -27,7 +27,7 @@ class LifeGroups extends StatelessWidget {
         centerTitle: true,
       ),
       body: StreamBuilder<List<QueryDocumentSnapshot<LifeGroupsModel>>>(
-          stream: context.read<LifeGroupBloc>().getAllLifeGroups(),
+          stream: context.read<LifeGroupProvider>().getAllLifeGroups(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               const Center(

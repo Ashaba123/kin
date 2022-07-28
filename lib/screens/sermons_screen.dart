@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kin/bloc/sermon_bloc.dart';
 import 'package:kin/constants/constants.dart';
 import 'package:kin/models/sermon_model.dart';
+import 'package:kin/provider/sermon_provider.dart';
 import 'package:kin/screens/player_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -34,7 +34,7 @@ class SermonsScreen extends StatelessWidget {
           children: [
             Expanded(
               child: StreamBuilder<List<QueryDocumentSnapshot<SermonModel>>>(
-                stream: context.read<SermonBloc>().getAllSermons(),
+                stream: context.read<SermonProvider>().getAllSermons(),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
                     const Center(

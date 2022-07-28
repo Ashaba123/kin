@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kin/bloc/pastor_bloc.dart';
 import 'package:kin/constants/constants.dart';
 import 'package:kin/models/pastors.dart';
+import 'package:kin/provider/pastor_provider.dart';
 import 'package:provider/provider.dart';
 
 class PastorsWidget extends StatelessWidget {
@@ -14,7 +14,7 @@ class PastorsWidget extends StatelessWidget {
         'https://firebasestorage.googleapis.com/v0/b/kin-app-12f22.appspot.com/o/Pastors%2Fkinlogo.PNG?alt=media&token=7bf5f35f-9197-49bd-b254-1de92f2bc067';
 
     return StreamBuilder<List<QueryDocumentSnapshot<PastorsModel>>>(
-        stream: context.read<PastorBloc>().getAllPastors(),
+        stream: context.read<PastorProvider>().getAllPastors(),
         builder: ((context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
@@ -28,9 +28,7 @@ class PastorsWidget extends StatelessWidget {
               ),
             );
           }
-          if (snapshot.data!.isEmpty) {
-            return const Center(child: Text('Pastors will be added'));
-          }
+
           return ListView.builder(
               itemCount: snapshot.data!.length,
               scrollDirection: Axis.horizontal,
@@ -46,12 +44,14 @@ class PastorsWidget extends StatelessWidget {
                         height: 120,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          border: Border.all(width: 3, style: BorderStyle.none),
+                          border: Border.all(
+                            style: BorderStyle.none,
+                          ),
                           image: DecorationImage(
                             image: NetworkImage(pastor.imgUrl == ""
                                 ? defaultImgUrl
                                 : pastor.imgUrl!),
-                            fit: BoxFit.fill,
+                            fit: BoxFit.fitHeight,
                           ),
                         ),
                       ),

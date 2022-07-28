@@ -26,6 +26,58 @@ class _DashboardScreenState extends State<DashboardScreen> {
         return true;
       },
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: Padding(
+            padding: const EdgeInsets.only(left: 120.0),
+            child: Image.asset(
+              'images/logo.png',
+              height: 60,
+              width: 100,
+              fit: BoxFit.cover,
+            ),
+          ),
+          centerTitle: true,
+          actions: [
+            DropdownButton<String>(
+              underline: Container(
+                color: Colors.amber.withOpacity(0.8),
+              ),
+              dropdownColor: kGold,
+              icon: Container(
+                padding: const EdgeInsets.only(right: 6, top: 10),
+                decoration: const BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.menu,
+                  size: 30,
+                  color: Colors.amber,
+                ),
+              ),
+              items: <String>[
+                "We Get To Give",
+                "Privacy Policy",
+              ].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (_) {
+                switch (_) {
+                  case "We Get To Give":
+                    Navigator.pushNamed(context, '/giving');
+                    break;
+                  case "Privacy Policy":
+                    break;
+                  default:
+                }
+              },
+            ),
+          ],
+        ),
         backgroundColor: kdark,
         bottomNavigationBar: Container(
           decoration: BoxDecoration(

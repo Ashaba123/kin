@@ -14,8 +14,8 @@ final List<String> imgList = [
   "images/img-8.jpeg",
 ]; //this should be from firebase
 
-class CarouselWithIndicatorDemo extends StatefulWidget {
-  const CarouselWithIndicatorDemo({Key? key}) : super(key: key);
+class CarouselWithImages extends StatefulWidget {
+  const CarouselWithImages({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -23,7 +23,7 @@ class CarouselWithIndicatorDemo extends StatefulWidget {
   }
 }
 
-class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
+class _CarouselWithIndicatorState extends State<CarouselWithImages> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
 
@@ -60,7 +60,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
         carouselController: _controller,
         options: CarouselOptions(
             autoPlay: true,
-            aspectRatio: 16 / 9,
+            aspectRatio: 3 / 2,
             // enlargeCenterPage: true,
             onPageChanged: (index, reason) {
               setState(() {

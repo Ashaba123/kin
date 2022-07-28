@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:kin/bloc/devotion_bloc.dart';
 import 'package:kin/constants/constants.dart';
-import 'package:kin/models/devotion_model.dart';
+import 'package:kin/models/devotion.dart';
+import 'package:kin/provider/devotion_provider.dart';
 
 import 'package:provider/provider.dart';
 
@@ -28,7 +28,7 @@ class Devotions extends StatelessWidget {
         centerTitle: true,
       ),
       body: StreamBuilder<List<QueryDocumentSnapshot<Devotion>>>(
-        stream: context.read<DevotionBloc>().getAllDevotions(),
+        stream: context.read<DevotionProvider>().getAllDevotions(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
